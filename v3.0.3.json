@@ -1,0 +1,214 @@
+{
+	"언어": "모든언어",
+	"앱설정": {
+		"버전": {
+			"코드": 26,
+			"이름": "2.0.6",
+			"날짜": "2026년 4월 16일 오전 12시",
+			"패키지": "com.goodmusic.music",
+			"패키지주소": "com.goodmusic.music",
+			"버전메세지": {
+				"all": "The following fixes have been made:\n\n1. Fixed an issue with loading earth music.",
+				"ko": "다음 사항이 개선 되었습니다.\n\n1.목성 및 기타 오류 수정.\n\n\n\n항상 노력하니, 문제가 있을시에는 여유를 가지고 기다려 주셨으면 좋겠습니다."
+			}
+		},
+    "공지":
+    {
+      "등록" : "26.04.25 2",
+      "메세지" : {
+        "all" : "다국어 공지사항",
+        "ko" : "구글 정책 관련하여, 많은 부분을 수정하다보니 오류가 발생하고 있습니다. \n\n오류는 하나식 수정중에 있습니다. 불편하더라도 조금만 여유를 가지고 기다려주시면 빠른 시일내에 오류가 발생하지 않도록 수정하겠습니다."
+      }
+    },
+		"환경":
+		{
+			"알림받기사용": true,
+			"검색기록사용": true,
+			"다운로드가능": true,
+			"썸네일표시": true,
+			"백그라운드재생허용": true
+		},
+		"리뷰": {
+			"사용": false,
+			"카운트": 5
+		},
+		"페이지뷰": {
+			"금성": {
+				"사용": true,
+				"이름": "금성"
+			},
+			"목성": {
+				"사용": false,
+				"이름": "목성",
+				"파서": {
+					"URL": "https://2024.myfreemp3juices.cc/api/api_search.php?callback="
+				}
+			},
+			"수성": {
+				"사용": false,
+				"이름": "수성"
+			},
+			"지구": {
+				"사용": true,
+				"앨범": true,
+				"쇼츠": false,
+				"이름": "지구",
+				"파서": {
+					"비디오항목1": "videoWithContextRenderer",
+					"제목항목2": "headline",
+					"영화구분3": "shortBylineText"
+				},
+				"요청": {
+					"설정": {
+						"사용모드": "확정",
+						"반복횟수": 2,
+						"요청딜레이": 100,
+						"오디오트랙선택": true
+					},
+					"모드정의": {
+						"일반": {
+							"이름": "일반 모드 (Android 15 / sw.js_data)",
+							"단계": [
+								{
+									"이름": "1단계: 인증 데이터 확보 (sw.js_data)",
+									"주소": "https://www.youtube.com/sw.js_data?hl=en",
+									"메서드": "GET",
+									"헤더": {
+										"User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 15; GB) gzip",
+										"Accept": "*/*"
+									},
+									"Payload": "",
+									"추출키": "sw_data"
+								},
+								{
+									"이름": "2단계: 데이터 요청 (Player API POST)",
+									"주소": "https://www.youtube.com/youtubei/v1/player?key=AIzaSyA8eiZmM1FaDVjRy-df2KTyQ_vz_yYM39w&hl=en",
+									"메서드": "POST",
+									"헤더": {
+										"User-Agent": "com.google.android.youtube/20.10.38 (Linux; U; Android 15; GB) gzip",
+										"X-Goog-Visitor-Id": "<<visitorData>>",
+										"Content-Type": "application/json"
+									},
+									"Payload": "{'videoId': '<<videoId>>', 'contentCheckOk': true, 'context': {'client': {'clientName': 'ANDROID_VR', 'clientVersion': '1.60.19', 'deviceMake': 'Oculus', 'deviceModel': 'Quest 3', 'osName': 'Android', 'osVersion': '12L', 'platform': 'MOBILE', 'visitorData': '<<visitorData>>', 'hl': '<<hl>>', 'gl': '<<gl>>', 'utcOffsetMinutes': 0}}}"
+								}
+							]
+						},
+						"확장": {
+							"이름": "확장 모드 (Android 16 / SDK 36)",
+							"단계": [
+								{
+									"이름": "1단계: 보안 토큰 발급 (visitor_id)",
+									"주소": "https://youtubei.googleapis.com/youtubei/v1/visitor_id?prettyPrint=false",
+									"메서드": "POST",
+									"헤더": {
+										"User-Agent": "com.google.android.youtube/21.03.36 (Linux; U; Android 15; GB) gzip",
+										"Content-Type": "application/json",
+										"X-Goog-Api-Format-Version": "2"
+									},
+									"Payload": "{'context':{'client':{'clientName':'ANDROID','clientVersion':'21.03.36','clientScreen':'WATCH','platform':'MOBILE','osName':'Android','osVersion':'16','androidSdkVersion':36,'hl':'<<hl>>','gl':'<<gl>>','utcOffsetMinutes':0},'request':{'internalExperimentFlags':[],'useSsl':true},'user':{'lockedSafetyMode':false}}}",
+									"추출키": "visitorData"
+								},
+								{
+									"이름": "2단계: 데이터 요청 (Reel Watch)",
+									"주소": "https://youtubei.googleapis.com/youtubei/v1/reel/reel_item_watch?prettyPrint=false&t=<<videoId>>&id=<<videoId>>&$fields=playerResponse",
+									"메서드": "POST",
+									"헤더": {
+										"User-Agent": "com.google.android.youtube/21.03.36 (Linux; U; Android 15; GB) gzip",
+										"X-Goog-Visitor-Id": "<<visitorData>>",
+										"Content-Type": "application/json",
+										"X-Goog-Api-Format-Version": "2"
+									},
+									"Payload": "{'context':{'client':{'clientName':'ANDROID','clientVersion':'21.03.36','clientScreen':'WATCH','platform':'MOBILE','visitorData':'<<visitorData>>','osName':'Android','osVersion':'16','androidSdkVersion':36,'hl':'<<hl>>','gl':'<<gl>>','utcOffsetMinutes':0},'request':{'internalExperimentFlags':[],'useSsl':true},'user':{'lockedSafetyMode':false}},'playerRequest':{'videoId':'<<videoId>>','cpn':'<<cpn>>','contentCheckOk':true,'racyCheckOk':true},'disablePlayerResponse':false}"
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		"광고": {
+			"애드몹": {
+				"사용": true,
+				"오픈광고": {
+					"사용여부": true,
+					"노출횟수": 2,
+					"노출시간": 180,
+					"미리로드": true,
+					"광고코드": "ca-app-pub-1902767889889637/9489349267",
+					"통과타이머": 7000
+				},
+				"전면광고": {
+					"사용여부": true,
+					"노출횟수": 4,
+					"미리로드": false,
+					"하루한번": true,
+					"재생광고": true,
+					"광고코드": "ca-app-pub-1902767889889637/7054757617",
+					"광고노출다운로드시작전": true,
+					"다운완료버튼클릭광고노출": false,
+					"광고문구삽입": false
+				},
+				"보상형전면광고": {
+					"사용여부": false,
+					"노출횟수": 3,
+					"미리로드": false,
+					"하루한번": true,
+					"광고코드": "ca-app-pub-1902767889889637/1802430937",
+					"다운완료버튼클릭광고노출": true,
+					"광고문구삽입": true,
+					"다운로드속도": 20
+				},
+				"벨소리전면광고": {
+					"사용여부": true,
+					"미리로드": false,
+					"광고코드": "ca-app-pub-1902767889889637/2624558018"
+				},
+				"배너광고": {
+					"사용여부": false,
+					"광고코드": "ca-app-pub-1902767889889637/7580317907"
+				},
+				"벨소리배너광고": {
+					"사용여부": true,
+					"광고코드": "ca-app-pub-1902767889889637/6667744804"
+				}
+			},
+			"페이스북": {
+				"사용": false,
+				"전면광고": {
+					"사용여부": true,
+					"노출횟수": 5,
+					"미리로드": false,
+					"광고코드": "1791347271786667_1793807454873982"
+				},
+				"배너광고": {
+					"사용여부": true,
+					"광고코드": "1791347271786667_1793819561539438"
+				},
+				"벨소리전면광고": {
+					"사용여부": true,
+					"미리로드": true,
+					"광고코드": "1791347271786667_1793807578207303"
+				},
+				"벨소리배너광고": {
+					"사용여부": false,
+					"광고코드": "710880043530785_824955762123212"
+				}
+			},
+			"유니티": {
+				"사용": false,
+				"ID": "4777973",
+				"전면광고": {
+					"사용여부": true,
+					"노출횟수": 5,
+					"미리로드": true,
+					"광고코드": "Download_Interstitial"
+				},
+				"벨소리전면광고": {
+					"사용여부": true,
+					"미리로드": true,
+					"광고코드": "Ringtone_Interstitial"
+				}
+			}
+		}
+	}
+}
