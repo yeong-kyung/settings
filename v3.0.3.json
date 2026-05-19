@@ -2,31 +2,36 @@
 	"언어": "모든언어",
 	"앱설정": {
 		"버전": {
-			"코드": 26,
-			"이름": "2.0.6",
-			"날짜": "2026년 4월 16일 오전 12시",
+			"코드": 39,
+			"이름": "3.0.9",
+			"날짜": "2026년 5월 7일 오전 8시",
 			"패키지": "com.goodmusic.music",
 			"패키지주소": "com.goodmusic.music",
 			"버전메세지": {
-				"all": "The following fixes have been made:\n\n1. Fixed an issue with loading earth music.",
-				"ko": "다음 사항이 개선 되었습니다.\n\n1.목성 및 기타 오류 수정.\n\n\n\n항상 노력하니, 문제가 있을시에는 여유를 가지고 기다려 주셨으면 좋겠습니다."
+				"all": "The following improvements have been made:\n\n1. Fixed app crash issues during playback and search.\n\n2. Fixed other functional glitches.\n\n\n\nWe are always striving to resolve issues as quickly as possible. Please bear with us.",
+				"ko": "다음 사항이 개선 되었습니다.\n\n1.재생 및 검색시 앱 종료 문제 보완.\n\n2. 기타 오작동 문제 수정.\n\n\n\n문제가 생기면 항상 빨리 고치려고 노력중입니다. 여유를 가져주세요."
 			}
 		},
     "공지":
     {
-      "등록" : "26.04.25 2",
+      "등록" : "26.05.18 1",
       "메세지" : {
-        "all" : "다국어 공지사항",
-        "ko" : "구글 정책 관련하여, 많은 부분을 수정하다보니 오류가 발생하고 있습니다. \n\n오류는 하나식 수정중에 있습니다. 불편하더라도 조금만 여유를 가지고 기다려주시면 빠른 시일내에 오류가 발생하지 않도록 수정하겠습니다."
-      }
+    "all": "The v4.0.9 update is available on May 18.\n\n1. Title display error fix.\n2. Download speed improvement.\n3. Other app termination bugs, etc.\n\nThose who are experiencing inconvenience, please get the update. Because we changed many parts due to Google policy, many errors are occurring. We are fixing them one by one, so it would be good if you could wait with patience.",
+    "ko": "5월 18일(v4.0.9) 업데이트가 있습니다.\n\n1. 제목 표시 오류 수정.\n2. 다운로드 속도 개선.\n3. 기타 앱 종료 버그 등.\n\n이용에 불편이 있는 분은 업데이트 받으시기 바랍니다. 구글 정책으로 인해 많은 부분을 변경 하다보니 오류가 많이 발생되고 있습니다. 하나하나 수정중에 있으니 여유를 가지고 기다려주시면 좋겠습니다."
+}
     },
 		"환경":
 		{
-			"알림받기사용": true,
+			"아침인사": false,
+			"알림받기사용": false,
 			"검색기록사용": true,
 			"다운로드가능": true,
 			"썸네일표시": true,
-			"백그라운드재생허용": true
+			"백그라운드재생허용": true,
+			"동시다운로드" : {
+				"사용" : true,
+				"파트개수" : 4        
+			},      
 		},
 		"리뷰": {
 			"사용": false,
@@ -51,7 +56,7 @@
 			"지구": {
 				"사용": true,
 				"앨범": true,
-				"쇼츠": false,
+				"쇼츠": true,
 				"이름": "지구",
 				"파서": {
 					"비디오항목1": "videoWithContextRenderer",
@@ -60,7 +65,7 @@
 				},
 				"요청": {
 					"설정": {
-						"사용모드": "확정",
+						"사용모드": "일반",
 						"반복횟수": 2,
 						"요청딜레이": 100,
 						"오디오트랙선택": true
